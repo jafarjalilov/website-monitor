@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: website-monitor
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: WEBSITE_URL
+        value: https://example.com  # Replace with your target website
+      - key: CHECK_INTERVAL
+        value: 3600  # Check every hour (in seconds)
